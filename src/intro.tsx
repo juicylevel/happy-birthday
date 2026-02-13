@@ -11,7 +11,9 @@ export const Intro = () => {
             alignItems="center"
             height="100%"
         >
-            <Typography variant="h2">Тёма! С Днём Рождения!</Typography>
+            <Typography variant="h2" textAlign="center">
+                Тёма! С Днём Рождения!
+            </Typography>
             <Card>
                 <CardContent>
                     <Typography variant="h6" textAlign="center">

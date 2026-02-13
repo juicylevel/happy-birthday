@@ -12,7 +12,9 @@ export const Description = () => {
             alignItems="center"
             height="100%"
         >
-            <Typography variant="h3">Секретная локация</Typography>
+            <Typography variant="h3" textAlign="center">
+                Секретная локация
+            </Typography>
             <Alert variant="filled" severity="warning">
                 Тёма, это план твоей квартиры, узнаёшь?
             </Alert>

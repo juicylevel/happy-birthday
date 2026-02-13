@@ -44,7 +44,9 @@ export const Plan2 = () => {
             alignItems="center"
             height="100%"
         >
-            <Typography variant="h3">Карта с секретным кодом #2</Typography>
+            <Typography variant="h3" textAlign="center">
+                Карта с секретным кодом #2
+            </Typography>
             <Alert variant="filled" severity="warning">
                 Тёма, найди по карте секретный код #2 и введи его для перехода к
                 следующему заданию.

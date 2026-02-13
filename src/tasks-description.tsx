@@ -12,7 +12,9 @@ export const TasksDescription = () => {
             alignItems="center"
             height="100%"
         >
-            <Typography variant="h3">Коды доступа</Typography>
+            <Typography variant="h3" textAlign="center">
+                Коды доступа
+            </Typography>
             <Alert
                 variant="filled"
                 severity="warning"

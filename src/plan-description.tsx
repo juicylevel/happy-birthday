@@ -12,7 +12,9 @@ export const PlanDescription = () => {
             alignItems="center"
             height="100%"
         >
-            <Typography variant="h3">Секретная локация</Typography>
+            <Typography variant="h3" textAlign="center">
+                Секретная локация
+            </Typography>
             <Alert variant="filled" severity="warning">
                 На этом плане будут указаны точки, где нужно будет найти
                 секретный код
