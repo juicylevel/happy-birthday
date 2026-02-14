@@ -1,9 +1,10 @@
 import { Alert, Button, Stack, Typography } from '@mui/material';
 import { useAppState } from './state';
+import { PrevButton } from './prev-button';
+import { EnterSound } from './enter-sound';
 
 export const PlanDescription = () => {
     const nextStep = useAppState((state) => state.nextStep);
-    const prevStep = useAppState((state) => state.prevStep);
     return (
         <Stack
             direction="column"
@@ -15,9 +16,14 @@ export const PlanDescription = () => {
             <Typography variant="h3" textAlign="center">
                 Секретная локация
             </Typography>
-            <Alert variant="filled" severity="warning">
-                На этом плане будут указаны точки, где нужно будет найти
-                секретный код
+            <Alert
+                variant="filled"
+                severity="warning"
+                sx={{ textAlign: 'center' }}
+            >
+                На этом плане будут указаны точки, где будет нужно найти
+                <br />
+                секретный код для доступа к следующему заданию.
             </Alert>
             <img src="./plan-free.jpg" width="50%" />
             <Button
@@ -28,10 +34,8 @@ export const PlanDescription = () => {
             >
                 Понял
             </Button>
-            <Button size="small" variant="text" onClick={prevStep}>
-                Назад
-            </Button>
-            <audio autoPlay src="./enter.mp3" />
+            <PrevButton />
+            <EnterSound />
         </Stack>
     );
 };

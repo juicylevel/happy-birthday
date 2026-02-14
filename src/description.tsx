@@ -1,9 +1,10 @@
 import { Alert, Button, Stack, Typography } from '@mui/material';
 import { useAppState } from './state';
+import { PrevButton } from './prev-button';
+import { EnterSound } from './enter-sound';
 
 export const Description = () => {
     const nextStep = useAppState((state) => state.nextStep);
-    const prevStep = useAppState((state) => state.prevStep);
     return (
         <Stack
             direction="column"
@@ -27,10 +28,8 @@ export const Description = () => {
             >
                 Да, узнаю
             </Button>
-            <Button size="small" variant="text" onClick={prevStep}>
-                Назад
-            </Button>
-            <audio autoPlay src="./enter.mp3" />
+            <PrevButton />
+            <EnterSound />
         </Stack>
     );
 };

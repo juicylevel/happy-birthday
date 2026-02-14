@@ -1,41 +1,16 @@
 import { Alert, Button, Stack, Typography } from '@mui/material';
 import { useForm, TextFieldElement } from 'react-hook-form-mui';
-import { useDialogs } from '@toolpad/core';
 import { useAppState } from './state';
 import type { CheckCodeFormValues } from './types';
 import { Codes } from './constants';
-import { useFeedbackSounds } from './use-feedback-sounds';
+import { useCheckCode } from './use-check-code';
+import { PrevButton } from './prev-button';
+import { EnterSound } from './enter-sound';
 
 export const Plan2 = () => {
-    const dialogs = useDialogs();
-    const { playSuccess, playError } = useFeedbackSounds();
     const nextStep = useAppState((state) => state.nextStep);
-    const prevStep = useAppState((state) => state.prevStep);
-    const { control, handleSubmit } = useForm({
-        defaultValues: {
-            code: '',
-        },
-    });
-
-    const checkCode = async (data: CheckCodeFormValues) => {
-        if (data.code.trim().toLocaleLowerCase() === Codes.CODE_2) {
-            playSuccess();
-            await dialogs.alert('Переходи к следующему заданию!', {
-                title: 'Код верный',
-                okText: 'Выполнить следующее задание',
-            });
-            nextStep();
-        } else {
-            playError();
-            await dialogs.alert(
-                'Проверь внимательно, возможно ошибся при вводе',
-                {
-                    title: 'Код неверный',
-                    okText: 'Ок',
-                },
-            );
-        }
-    };
+    const checkCode = useCheckCode(Codes.CODE_2, nextStep);
+    const { control, handleSubmit } = useForm<CheckCodeFormValues>();
     return (
         <Stack
             direction="column"
@@ -68,12 +43,10 @@ export const Plan2 = () => {
                     >
                         Проверить код
                     </Button>
-                    <Button size="small" variant="text" onClick={prevStep}>
-                        Назад
-                    </Button>
+                    <PrevButton />
                 </Stack>
             </form>
-            <audio autoPlay src="./enter.mp3" />
+            <EnterSound />
         </Stack>
     );
 };

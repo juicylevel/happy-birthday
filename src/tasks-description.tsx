@@ -1,9 +1,10 @@
 import { Alert, Button, Stack, Typography } from '@mui/material';
 import { useAppState } from './state';
+import { PrevButton } from './prev-button';
+import { EnterSound } from './enter-sound';
 
 export const TasksDescription = () => {
     const nextStep = useAppState((state) => state.nextStep);
-    const prevStep = useAppState((state) => state.prevStep);
     return (
         <Stack
             direction="column"
@@ -20,8 +21,8 @@ export const TasksDescription = () => {
                 severity="warning"
                 sx={{ textAlign: 'center' }}
             >
-                Чтобы получить координаты точки, где лежит код доступа, нужно
-                выполнить простые задания.
+                Чтобы получить координаты точки на плане, нужно выполнить
+                простые задания.
                 <br /> Ты готов?
             </Alert>
             <Button
@@ -32,10 +33,8 @@ export const TasksDescription = () => {
             >
                 Да
             </Button>
-            <Button size="small" variant="text" onClick={prevStep}>
-                Назад
-            </Button>
-            <audio autoPlay src="./94eb983f71de153.mp3" />
+            <PrevButton />
+            <EnterSound />
         </Stack>
     );
 };

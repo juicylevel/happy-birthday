@@ -1,9 +1,10 @@
 import { Button, Card, CardContent, Stack, Typography } from '@mui/material';
 import { useAppState } from './state';
+import { PrevButton } from './prev-button';
+import { EnterSound } from './enter-sound';
 
 export const TasksIntro = () => {
     const nextStep = useAppState((state) => state.nextStep);
-    const prevStep = useAppState((state) => state.prevStep);
     return (
         <Stack
             direction="column"
@@ -22,10 +23,8 @@ export const TasksIntro = () => {
             <Button size="large" variant="contained" onClick={nextStep}>
                 Да, готов!
             </Button>
-            <Button size="small" variant="text" onClick={prevStep}>
-                Назад
-            </Button>
-            <audio autoPlay src="./94eb983f71de153.mp3" />
+            <PrevButton />
+            <EnterSound />
         </Stack>
     );
 };

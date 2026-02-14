@@ -1,5 +1,6 @@
 import { Button, Card, CardContent, Stack, Typography } from '@mui/material';
 import { useAppState } from './state';
+import { EnterSound } from './enter-sound';
 
 export const Intro = () => {
     const nextStep = useAppState((state) => state.nextStep);
@@ -17,7 +18,7 @@ export const Intro = () => {
             <Card>
                 <CardContent>
                     <Typography variant="h6" textAlign="center">
-                        VertuS368, тебе предстоит выполнить секретные задания,
+                        VertuS368, тебе предстоит выполнить 5 секретных заданий,
                         чтобы добраться до артефакта. <br />
                         Следуй инструкциям..
                     </Typography>
@@ -26,7 +27,7 @@ export const Intro = () => {
             <Button size="large" variant="contained" onClick={nextStep}>
                 Начать
             </Button>
-            <audio autoPlay src="./enter.mp3" />
+            <EnterSound />
         </Stack>
     );
 };
